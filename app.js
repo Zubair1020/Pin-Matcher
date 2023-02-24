@@ -17,10 +17,7 @@ const numberButtons = document.querySelectorAll(".numButton");
 for (let numberButton of numberButtons) {
   numberButton.addEventListener("click", () => {
     pinInput.value += numberButton.textContent;
-    numberButton.classList.add("activeButton");
-    setTimeout(() => {
-      numberButton.classList.remove("activeButton");
-    }, 100);
+    setTimeOut(numberButton);
   });
 }
 
@@ -57,10 +54,7 @@ const deleteButton = document.querySelector(".deleteButton");
 
 deleteButton.addEventListener("click", () => {
   pinInput.value = pinInput.value.slice(0, -1);
-  deleteButton.classList.add("activeButton");
-  setTimeout(() => {
-    deleteButton.classList.remove("activeButton");
-  }, 100);
+  setTimeOut(deleteButton);
 });
 
 // ****************  Clear Button Handel  **********************
@@ -69,11 +63,18 @@ const clearButton = document.querySelector(".clearButton");
 
 clearButton.addEventListener("click", () => {
   pinInput.value = "";
-  clearButton.classList.add("activeButton");
-  setTimeout(() => {
-    clearButton.classList.remove("activeButton");
-  }, 100);
+  setTimeOut(clearButton)
 });
+
+
+// ************ Set Time Out *************
+
+const setTimeOut = (button) => {
+ button.classList.add("activeButton");
+  setTimeout(() => {
+    button.classList.remove("activeButton");
+  }, 100);
+}
 
 // ****************  Some Constants for Notify  Section **********************
 
